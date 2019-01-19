@@ -1,0 +1,38 @@
+<div id="facebook-Bar" >
+
+		<div id="facebook-Frame">
+			<div id="logo"><a href="">facebook</a></div>
+
+			<div id="searchbox-center">
+				<form method="POST" action="/searchfriends" id="login_form" name="login_form">
+					<table border="0" style="border: none">
+						<tr>
+							<td><input type="text" tabindex="1" id="email" placeholder="Search" name="searchtext" class="inputtext radius1" ng-model = "searchtext"></td>
+<!-- 							<td><input type="submit" class="fbbutton" name="searchbutton" value="Search"/></td> -->
+<!-- 							<td><input type="button" class="fbbutton" name="searchbutton" value="Search h" tabindex="2" ng-click = "searchfriends()"></td> -->
+							<td><input type="submit" class="fbbutton" name="searchbutton" value="Search" tabindex="2"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			
+			<div id="top-bar-navigation-right" class="searchbox radius">
+				<label><a href="/about" style="text-decoration: none;">
+					<span style="color: white;">
+<!-- 						<img src = "dp.jpg" height = "20" width = "20"> -->
+						{{username}}
+					</span></a></label> 
+				<label><a href="/home" style="text-decoration: none;"><span style="color: white;">Home</span></a></label>
+				<label><a href="/friends" style="text-decoration: none;"><span style="color: white;">Friends</span></a></label>
+				<label><a href="/notification" style="text-decoration: none;">
+					<span style="color: white;">Notification <span class="badge" style = "background:red">{{count}}</span></span></a>
+				</label>
+				<label><input type="button" class="fbbutton" value="Sign out" ng-Click="signout()">
+				
+				<!-- 			<a href="/signout" style="text-decoration:none;"><span style="color:white;">Signout</span></a> -->
+				</label>
+			</div>
+		</div>
+</div>
+
+    

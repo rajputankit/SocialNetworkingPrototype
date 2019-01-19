@@ -1,0 +1,545 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'bcrypt',
+1 verbose cli   '--msvs_version=2008' ]
+2 info using npm@2.14.2
+3 info using node@v4.0.0
+4 verbose install initial load of C:\Users\ankit\Documents\lab2\myfacebook-server\package.json
+5 verbose installManyTop reading scoped package data from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\amqp\package.json
+6 verbose installManyTop reading scoped package data from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\connect-mongo\package.json
+7 verbose installManyTop reading scoped package data from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\mongodb\package.json
+8 info package.json amqp@0.2.4 No license field.
+9 info package.json connect-mongo@0.8.2 No license field.
+10 verbose readDependencies loading dependencies from C:\Users\ankit\Documents\lab2\myfacebook-server\package.json
+11 silly cache add args [ 'bcrypt', null ]
+12 verbose cache add spec bcrypt
+13 silly cache add parsed spec Result {
+13 silly cache add   raw: 'bcrypt',
+13 silly cache add   scope: null,
+13 silly cache add   name: 'bcrypt',
+13 silly cache add   rawSpec: '',
+13 silly cache add   spec: '*',
+13 silly cache add   type: 'range' }
+14 silly addNamed bcrypt@*
+15 verbose addNamed "*" is a valid semver range for bcrypt
+16 silly addNameRange { name: 'bcrypt', range: '*', hasData: false }
+17 silly mapToRegistry name bcrypt
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry uri https://registry.npmjs.org/bcrypt
+21 verbose addNameRange registry:https://registry.npmjs.org/bcrypt not in flight; fetching
+22 verbose request uri https://registry.npmjs.org/bcrypt
+23 verbose request no auth needed
+24 info attempt registry request try #1 at 1:30:05 AM
+25 verbose request id 12accfc000eb68a0
+26 verbose etag "8MIE4A7QKRLFZH9ARZ81AYQ8V"
+27 http request GET https://registry.npmjs.org/bcrypt
+28 http 304 https://registry.npmjs.org/bcrypt
+29 silly get cb [ 304,
+29 silly get   { date: 'Sun, 08 Nov 2015 09:29:05 GMT',
+29 silly get     via: '1.1 varnish',
+29 silly get     'cache-control': 'max-age=60',
+29 silly get     etag: '"8MIE4A7QKRLFZH9ARZ81AYQ8V"',
+29 silly get     age: '1',
+29 silly get     connection: 'keep-alive',
+29 silly get     'x-served-by': 'cache-sjc3121-SJC',
+29 silly get     'x-cache': 'HIT',
+29 silly get     'x-cache-hits': '1',
+29 silly get     'x-timer': 'S1446974945.304328,VS0,VE0',
+29 silly get     vary: 'Accept' } ]
+30 verbose etag https://registry.npmjs.org/bcrypt from cache
+31 verbose get saving bcrypt to C:\Users\ankit\AppData\Roaming\npm-cache\registry.npmjs.org\bcrypt\.cache.json
+32 silly addNameRange number 2 { name: 'bcrypt', range: '*', hasData: true }
+33 silly addNameRange versions [ 'bcrypt',
+33 silly addNameRange   [ '0.1.2',
+33 silly addNameRange     '0.2.0',
+33 silly addNameRange     '0.2.1',
+33 silly addNameRange     '0.1.3',
+33 silly addNameRange     '0.2.2',
+33 silly addNameRange     '0.2.3',
+33 silly addNameRange     '0.2.4',
+33 silly addNameRange     '0.3.0',
+33 silly addNameRange     '0.3.1',
+33 silly addNameRange     '0.3.2',
+33 silly addNameRange     '0.4.0',
+33 silly addNameRange     '0.4.1',
+33 silly addNameRange     '0.5.0',
+33 silly addNameRange     '0.6.0',
+33 silly addNameRange     '0.7.0',
+33 silly addNameRange     '0.7.1',
+33 silly addNameRange     '0.7.2',
+33 silly addNameRange     '0.7.3',
+33 silly addNameRange     '0.7.4',
+33 silly addNameRange     '0.7.5',
+33 silly addNameRange     '0.7.6',
+33 silly addNameRange     '0.7.7',
+33 silly addNameRange     '0.7.8',
+33 silly addNameRange     '0.8.0',
+33 silly addNameRange     '0.8.1',
+33 silly addNameRange     '0.8.2',
+33 silly addNameRange     '0.8.3',
+33 silly addNameRange     '0.8.4',
+33 silly addNameRange     '0.8.5' ] ]
+34 silly addNamed bcrypt@0.8.5
+35 verbose addNamed "0.8.5" is a plain semver version for bcrypt
+36 silly cache afterAdd bcrypt@0.8.5
+37 verbose afterAdd C:\Users\ankit\AppData\Roaming\npm-cache\bcrypt\0.8.5\package\package.json not in flight; writing
+38 verbose afterAdd C:\Users\ankit\AppData\Roaming\npm-cache\bcrypt\0.8.5\package\package.json written
+39 silly install resolved [ { name: 'bcrypt',
+39 silly install resolved     description: 'A bcrypt library for NodeJS.',
+39 silly install resolved     keywords:
+39 silly install resolved      [ 'bcrypt',
+39 silly install resolved        'password',
+39 silly install resolved        'auth',
+39 silly install resolved        'authentication',
+39 silly install resolved        'encryption',
+39 silly install resolved        'crypt',
+39 silly install resolved        'crypto' ],
+39 silly install resolved     main: './bcrypt',
+39 silly install resolved     version: '0.8.5',
+39 silly install resolved     author: { name: 'Nick Campbell', url: 'https://github.com/ncb000gt' },
+39 silly install resolved     engines: { node: '>= 0.6.0' },
+39 silly install resolved     repository:
+39 silly install resolved      { type: 'git',
+39 silly install resolved        url: 'git+https://github.com/ncb000gt/node.bcrypt.js.git' },
+39 silly install resolved     license: 'MIT',
+39 silly install resolved     bugs: { url: 'https://github.com/ncb000gt/node.bcrypt.js/issues' },
+39 silly install resolved     scripts:
+39 silly install resolved      { test: 'node-gyp configure build && nodeunit test',
+39 silly install resolved        install: 'node-gyp rebuild' },
+39 silly install resolved     dependencies: { bindings: '1.2.1', nan: '2.0.5' },
+39 silly install resolved     devDependencies: { nodeunit: '~0.9.1' },
+39 silly install resolved     contributors:
+39 silly install resolved      [ [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object],
+39 silly install resolved        [Object] ],
+39 silly install resolved     gypfile: true,
+39 silly install resolved     gitHead: '5d97708f06754d7d7989c67ba867002d10013615',
+39 silly install resolved     homepage: 'https://github.com/ncb000gt/node.bcrypt.js#readme',
+39 silly install resolved     _id: 'bcrypt@0.8.5',
+39 silly install resolved     _shasum: '8e5b81b4db80e944f440005979ca8d58a961861d',
+39 silly install resolved     _from: 'bcrypt@*',
+39 silly install resolved     _npmVersion: '2.13.3',
+39 silly install resolved     _nodeVersion: '3.0.0',
+39 silly install resolved     _npmUser: { name: 'defunctzombie', email: 'shtylman@gmail.com' },
+39 silly install resolved     dist:
+39 silly install resolved      { shasum: '8e5b81b4db80e944f440005979ca8d58a961861d',
+39 silly install resolved        tarball: 'http://registry.npmjs.org/bcrypt/-/bcrypt-0.8.5.tgz' },
+39 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+39 silly install resolved     directories: {},
+39 silly install resolved     _resolved: 'https://registry.npmjs.org/bcrypt/-/bcrypt-0.8.5.tgz',
+39 silly install resolved     readme: 'ERROR: No README data found!' } ]
+40 info install bcrypt@0.8.5 into C:\Users\ankit\Documents\lab2\myfacebook-server
+41 info installOne bcrypt@0.8.5
+42 verbose installOne of bcrypt to C:\Users\ankit\Documents\lab2\myfacebook-server not in flight; installing
+43 verbose lock using C:\Users\ankit\AppData\Roaming\npm-cache\_locks\bcrypt-b9841c959a64f2a2.lock for C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+44 silly install write writing bcrypt 0.8.5 to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+45 verbose unbuild node_modules\bcrypt
+46 silly gentlyRm C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt is being purged from base C:\Users\ankit\Documents\lab2\myfacebook-server
+47 verbose gentlyRm don't care about contents; nuking C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+48 verbose tar unpack C:\Users\ankit\AppData\Roaming\npm-cache\bcrypt\0.8.5\package.tgz
+49 verbose tar unpacking to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+50 silly gentlyRm C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt is being purged
+51 verbose gentlyRm don't care about contents; nuking C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+52 silly gunzTarPerm modes [ '777', '666' ]
+53 silly gunzTarPerm extractEntry package.json
+54 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+55 silly gunzTarPerm extractEntry .npmignore
+56 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+57 silly gunzTarPerm extractEntry README.md
+58 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+59 silly gunzTarPerm extractEntry LICENSE
+60 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+61 silly gunzTarPerm extractEntry bcrypt.js
+62 silly gunzTarPerm modified mode [ 'bcrypt.js', 420, 438 ]
+63 silly gunzTarPerm extractEntry binding.gyp
+64 silly gunzTarPerm modified mode [ 'binding.gyp', 420, 438 ]
+65 silly gunzTarPerm extractEntry .travis.yml
+66 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+67 silly gunzTarPerm extractEntry CHANGELOG.md
+68 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+69 silly gunzTarPerm extractEntry examples/async_compare.js
+70 silly gunzTarPerm modified mode [ 'examples/async_compare.js', 420, 438 ]
+71 silly gunzTarPerm extractEntry examples/forever_gen_salt.js
+72 silly gunzTarPerm modified mode [ 'examples/forever_gen_salt.js', 420, 438 ]
+73 silly gunzTarPerm extractEntry test/async.js
+74 silly gunzTarPerm modified mode [ 'test/async.js', 420, 438 ]
+75 silly gunzTarPerm extractEntry test/repetitions.js
+76 silly gunzTarPerm modified mode [ 'test/repetitions.js', 420, 438 ]
+77 silly gunzTarPerm extractEntry test/sync.js
+78 silly gunzTarPerm modified mode [ 'test/sync.js', 420, 438 ]
+79 silly gunzTarPerm extractEntry Makefile
+80 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+81 silly gunzTarPerm extractEntry src/bcrypt.cc
+82 silly gunzTarPerm modified mode [ 'src/bcrypt.cc', 420, 438 ]
+83 silly gunzTarPerm extractEntry src/bcrypt_node.cc
+84 silly gunzTarPerm modified mode [ 'src/bcrypt_node.cc', 420, 438 ]
+85 silly gunzTarPerm extractEntry src/blowfish.cc
+86 silly gunzTarPerm modified mode [ 'src/blowfish.cc', 420, 438 ]
+87 silly gunzTarPerm extractEntry src/node_blf.h
+88 silly gunzTarPerm modified mode [ 'src/node_blf.h', 420, 438 ]
+89 silly gunzTarPerm extractEntry werker.yml
+90 silly gunzTarPerm modified mode [ 'werker.yml', 420, 438 ]
+91 verbose write writing to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\package.json
+92 info preinstall bcrypt@0.8.5
+93 verbose readDependencies loading dependencies from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\package.json
+94 silly prepareForInstallMany adding bindings@1.2.1 from bcrypt dependencies
+95 silly prepareForInstallMany adding nan@2.0.5 from bcrypt dependencies
+96 verbose readDependencies loading dependencies from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\package.json
+97 silly cache add args [ 'bindings@1.2.1', null ]
+98 verbose cache add spec bindings@1.2.1
+99 silly cache add args [ 'nan@2.0.5', null ]
+100 verbose cache add spec nan@2.0.5
+101 silly cache add parsed spec Result {
+101 silly cache add   raw: 'bindings@1.2.1',
+101 silly cache add   scope: null,
+101 silly cache add   name: 'bindings',
+101 silly cache add   rawSpec: '1.2.1',
+101 silly cache add   spec: '1.2.1',
+101 silly cache add   type: 'version' }
+102 silly addNamed bindings@1.2.1
+103 verbose addNamed "1.2.1" is a plain semver version for bindings
+104 silly mapToRegistry name bindings
+105 silly mapToRegistry using default registry
+106 silly mapToRegistry registry https://registry.npmjs.org/
+107 silly mapToRegistry uri https://registry.npmjs.org/bindings
+108 verbose addNameVersion registry:https://registry.npmjs.org/bindings not in flight; fetching
+109 silly cache add parsed spec Result {
+109 silly cache add   raw: 'nan@2.0.5',
+109 silly cache add   scope: null,
+109 silly cache add   name: 'nan',
+109 silly cache add   rawSpec: '2.0.5',
+109 silly cache add   spec: '2.0.5',
+109 silly cache add   type: 'version' }
+110 silly addNamed nan@2.0.5
+111 verbose addNamed "2.0.5" is a plain semver version for nan
+112 silly mapToRegistry name nan
+113 silly mapToRegistry using default registry
+114 silly mapToRegistry registry https://registry.npmjs.org/
+115 silly mapToRegistry uri https://registry.npmjs.org/nan
+116 verbose addNameVersion registry:https://registry.npmjs.org/nan not in flight; fetching
+117 verbose request uri https://registry.npmjs.org/nan
+118 verbose request no auth needed
+119 info attempt registry request try #1 at 1:30:06 AM
+120 verbose etag "CJ3ZKOY24CWA1LM0KQ4KE7PG1"
+121 http request GET https://registry.npmjs.org/nan
+122 verbose request uri https://registry.npmjs.org/bindings
+123 verbose request no auth needed
+124 info attempt registry request try #1 at 1:30:06 AM
+125 verbose etag "9T1GC8LK3NF0OJU9OPHCFIKS3"
+126 http request GET https://registry.npmjs.org/bindings
+127 http 304 https://registry.npmjs.org/nan
+128 silly get cb [ 304,
+128 silly get   { date: 'Sun, 08 Nov 2015 09:29:06 GMT',
+128 silly get     via: '1.1 varnish',
+128 silly get     'cache-control': 'max-age=60',
+128 silly get     etag: '"CJ3ZKOY24CWA1LM0KQ4KE7PG1"',
+128 silly get     age: '51',
+128 silly get     connection: 'keep-alive',
+128 silly get     'x-served-by': 'cache-sjc3134-SJC',
+128 silly get     'x-cache': 'HIT',
+128 silly get     'x-cache-hits': '2',
+128 silly get     'x-timer': 'S1446974946.050235,VS0,VE0',
+128 silly get     vary: 'Accept' } ]
+129 verbose etag https://registry.npmjs.org/nan from cache
+130 verbose get saving nan to C:\Users\ankit\AppData\Roaming\npm-cache\registry.npmjs.org\nan\.cache.json
+131 http 304 https://registry.npmjs.org/bindings
+132 silly get cb [ 304,
+132 silly get   { date: 'Sun, 08 Nov 2015 09:29:06 GMT',
+132 silly get     via: '1.1 varnish',
+132 silly get     'cache-control': 'max-age=60',
+132 silly get     etag: '"9T1GC8LK3NF0OJU9OPHCFIKS3"',
+132 silly get     age: '51',
+132 silly get     connection: 'keep-alive',
+132 silly get     'x-served-by': 'cache-sjc3122-SJC',
+132 silly get     'x-cache': 'HIT',
+132 silly get     'x-cache-hits': '1',
+132 silly get     'x-timer': 'S1446974946.056571,VS0,VE0',
+132 silly get     vary: 'Accept' } ]
+133 verbose etag https://registry.npmjs.org/bindings from cache
+134 verbose get saving bindings to C:\Users\ankit\AppData\Roaming\npm-cache\registry.npmjs.org\bindings\.cache.json
+135 silly cache afterAdd nan@2.0.5
+136 verbose afterAdd C:\Users\ankit\AppData\Roaming\npm-cache\nan\2.0.5\package\package.json not in flight; writing
+137 silly cache afterAdd bindings@1.2.1
+138 verbose afterAdd C:\Users\ankit\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json not in flight; writing
+139 verbose afterAdd C:\Users\ankit\AppData\Roaming\npm-cache\nan\2.0.5\package\package.json written
+140 verbose afterAdd C:\Users\ankit\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json written
+141 silly install resolved [ { name: 'nan',
+141 silly install resolved     version: '2.0.5',
+141 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+141 silly install resolved     main: 'include_dirs.js',
+141 silly install resolved     repository: { type: 'git', url: 'git://github.com/nodejs/nan.git' },
+141 silly install resolved     scripts:
+141 silly install resolved      { test: 'tap --gc test/js/*-test.js',
+141 silly install resolved        'rebuild-tests': 'pangyp rebuild --msvs_version=2013 --directory test',
+141 silly install resolved        docs: 'doc/.build.sh' },
+141 silly install resolved     contributors:
+141 silly install resolved      [ [Object],
+141 silly install resolved        [Object],
+141 silly install resolved        [Object],
+141 silly install resolved        [Object],
+141 silly install resolved        [Object],
+141 silly install resolved        [Object],
+141 silly install resolved        [Object] ],
+141 silly install resolved     devDependencies:
+141 silly install resolved      { bindings: '~1.2.1',
+141 silly install resolved        'node-gyp': '~2.0.2',
+141 silly install resolved        pangyp: '~2.2.0',
+141 silly install resolved        tap: '~0.7.1',
+141 silly install resolved        xtend: '~4.0.0' },
+141 silly install resolved     license: 'MIT',
+141 silly install resolved     gitHead: 'd13a2e9ce762fd130877b53c71d35963fa2cf689',
+141 silly install resolved     bugs: { url: 'https://github.com/nodejs/nan/issues' },
+141 silly install resolved     homepage: 'https://github.com/nodejs/nan#readme',
+141 silly install resolved     _id: 'nan@2.0.5',
+141 silly install resolved     _shasum: '365888014be1fd178db0cbfa258edf7b0cb1c408',
+141 silly install resolved     _from: 'nan@2.0.5',
+141 silly install resolved     _npmVersion: '2.13.3',
+141 silly install resolved     _nodeVersion: '3.0.0',
+141 silly install resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+141 silly install resolved     maintainers: [ [Object], [Object] ],
+141 silly install resolved     dist:
+141 silly install resolved      { shasum: '365888014be1fd178db0cbfa258edf7b0cb1c408',
+141 silly install resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-2.0.5.tgz' },
+141 silly install resolved     directories: {},
+141 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-2.0.5.tgz',
+141 silly install resolved     readme: 'ERROR: No README data found!' },
+141 silly install resolved   { name: 'bindings',
+141 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+141 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+141 silly install resolved     version: '1.2.1',
+141 silly install resolved     author:
+141 silly install resolved      { name: 'Nathan Rajlich',
+141 silly install resolved        email: 'nathan@tootallnate.net',
+141 silly install resolved        url: 'http://tootallnate.net' },
+141 silly install resolved     repository:
+141 silly install resolved      { type: 'git',
+141 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+141 silly install resolved     main: './bindings.js',
+141 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+141 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+141 silly install resolved     license: 'MIT',
+141 silly install resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+141 silly install resolved     _id: 'bindings@1.2.1',
+141 silly install resolved     scripts: {},
+141 silly install resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+141 silly install resolved     _from: 'bindings@1.2.1',
+141 silly install resolved     _npmVersion: '1.4.14',
+141 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+141 silly install resolved     maintainers: [ [Object], [Object] ],
+141 silly install resolved     dist:
+141 silly install resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+141 silly install resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+141 silly install resolved     directories: {},
+141 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz',
+141 silly install resolved     readme: 'ERROR: No README data found!' } ]
+142 info install nan@2.0.5 into C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+143 info install bindings@1.2.1 into C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+144 info installOne nan@2.0.5
+145 verbose installOne of nan to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt not in flight; installing
+146 info installOne bindings@1.2.1
+147 verbose installOne of bindings to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt not in flight; installing
+148 verbose lock using C:\Users\ankit\AppData\Roaming\npm-cache\_locks\nan-cbee9ecdd8becfb6.lock for C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+149 silly install write writing nan 2.0.5 to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+150 verbose lock using C:\Users\ankit\AppData\Roaming\npm-cache\_locks\bindings-69553836b547e611.lock for C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+151 silly install write writing bindings 1.2.1 to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+152 verbose unbuild node_modules\bcrypt\node_modules\nan
+153 silly gentlyRm C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan is being purged from base C:\Users\ankit\Documents\lab2\myfacebook-server
+154 verbose gentlyRm don't care about contents; nuking C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+155 verbose unbuild node_modules\bcrypt\node_modules\bindings
+156 verbose tar unpack C:\Users\ankit\AppData\Roaming\npm-cache\nan\2.0.5\package.tgz
+157 verbose tar unpacking to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+158 silly gentlyRm C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan is being purged
+159 verbose gentlyRm don't care about contents; nuking C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+160 silly gunzTarPerm modes [ '777', '666' ]
+161 silly gentlyRm C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings is being purged from base C:\Users\ankit\Documents\lab2\myfacebook-server
+162 verbose gentlyRm don't care about contents; nuking C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+163 verbose tar unpack C:\Users\ankit\AppData\Roaming\npm-cache\bindings\1.2.1\package.tgz
+164 verbose tar unpacking to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+165 silly gentlyRm C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings is being purged
+166 verbose gentlyRm don't care about contents; nuking C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+167 silly gunzTarPerm modes [ '777', '666' ]
+168 silly gunzTarPerm extractEntry package.json
+169 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+170 silly gunzTarPerm extractEntry README.md
+171 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+172 silly gunzTarPerm extractEntry include_dirs.js
+173 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 438 ]
+174 silly gunzTarPerm extractEntry nan_converters.h
+175 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 438 ]
+176 silly gunzTarPerm extractEntry LICENSE.md
+177 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 438 ]
+178 silly gunzTarPerm extractEntry .dntrc
+179 silly gunzTarPerm modified mode [ '.dntrc', 436, 438 ]
+180 silly gunzTarPerm extractEntry package.json
+181 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+182 silly gunzTarPerm extractEntry appveyor.yml
+183 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 438 ]
+184 silly gunzTarPerm extractEntry README.md
+185 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+186 silly gunzTarPerm extractEntry bindings.js
+187 silly gunzTarPerm modified mode [ 'bindings.js', 420, 438 ]
+188 silly gunzTarPerm extractEntry doc/new.md
+189 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 438 ]
+190 silly gunzTarPerm extractEntry doc/.build.sh
+191 silly gunzTarPerm modified mode [ 'doc/.build.sh', 509, 511 ]
+192 silly gunzTarPerm extractEntry doc/buffers.md
+193 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 438 ]
+194 silly gunzTarPerm extractEntry doc/callback.md
+195 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 438 ]
+196 silly gunzTarPerm extractEntry doc/converters.md
+197 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 438 ]
+198 silly gunzTarPerm extractEntry doc/errors.md
+199 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 438 ]
+200 verbose write writing to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings\package.json
+201 silly gunzTarPerm extractEntry doc/maybe_types.md
+202 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 438 ]
+203 silly gunzTarPerm extractEntry doc/methods.md
+204 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 438 ]
+205 silly gunzTarPerm extractEntry doc/asyncworker.md
+206 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 438 ]
+207 silly gunzTarPerm extractEntry doc/node_misc.md
+208 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 438 ]
+209 silly gunzTarPerm extractEntry doc/persistent.md
+210 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 438 ]
+211 silly gunzTarPerm extractEntry doc/scopes.md
+212 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 438 ]
+213 silly gunzTarPerm extractEntry doc/script.md
+214 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 438 ]
+215 silly gunzTarPerm extractEntry doc/string_bytes.md
+216 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 438 ]
+217 info preinstall bindings@1.2.1
+218 verbose readDependencies loading dependencies from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings\package.json
+219 silly gunzTarPerm extractEntry doc/v8_internals.md
+220 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 438 ]
+221 silly gunzTarPerm extractEntry doc/v8_misc.md
+222 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 438 ]
+223 verbose readDependencies loading dependencies from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings\package.json
+224 silly install resolved []
+225 verbose about to build C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+226 info build C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+227 silly gunzTarPerm extractEntry nan.h
+228 silly gunzTarPerm modified mode [ 'nan.h', 436, 438 ]
+229 silly gunzTarPerm extractEntry nan_callbacks.h
+230 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 438 ]
+231 info linkStuff bindings@1.2.1
+232 silly linkStuff bindings@1.2.1 has C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules as its parent node_modules
+233 verbose linkBins bindings@1.2.1
+234 verbose linkMans bindings@1.2.1
+235 verbose rebuildBundles bindings@1.2.1
+236 info install bindings@1.2.1
+237 info postinstall bindings@1.2.1
+238 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+239 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 438 ]
+240 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+241 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 438 ]
+242 verbose unlock done using C:\Users\ankit\AppData\Roaming\npm-cache\_locks\bindings-69553836b547e611.lock for C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\bindings
+243 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+244 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 438 ]
+245 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+246 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 438 ]
+247 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+248 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 438 ]
+249 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+250 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 438 ]
+251 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+252 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 438 ]
+253 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+254 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 438 ]
+255 silly gunzTarPerm extractEntry nan_new.h
+256 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 438 ]
+257 silly gunzTarPerm extractEntry nan_object_wrap.h
+258 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 438 ]
+259 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+260 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 438 ]
+261 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+262 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 438 ]
+263 silly gunzTarPerm extractEntry nan_string_bytes.h
+264 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 438 ]
+265 silly gunzTarPerm extractEntry nan_weak.h
+266 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 438 ]
+267 silly gunzTarPerm extractEntry CHANGELOG.md
+268 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 438 ]
+269 silly gunzTarPerm extractEntry tools/package.json
+270 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 438 ]
+271 silly gunzTarPerm extractEntry tools/README.md
+272 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 438 ]
+273 silly gunzTarPerm extractEntry tools/1to2.js
+274 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 511 ]
+275 verbose write writing to C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan\package.json
+276 info preinstall nan@2.0.5
+277 verbose readDependencies loading dependencies from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan\package.json
+278 verbose readDependencies loading dependencies from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan\package.json
+279 silly install resolved []
+280 verbose about to build C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+281 info build C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+282 info linkStuff nan@2.0.5
+283 silly linkStuff nan@2.0.5 has C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules as its parent node_modules
+284 verbose linkBins nan@2.0.5
+285 verbose linkMans nan@2.0.5
+286 verbose rebuildBundles nan@2.0.5
+287 info install nan@2.0.5
+288 info postinstall nan@2.0.5
+289 verbose unlock done using C:\Users\ankit\AppData\Roaming\npm-cache\_locks\nan-cbee9ecdd8becfb6.lock for C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt\node_modules\nan
+290 verbose about to build C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+291 info build C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+292 info linkStuff bcrypt@0.8.5
+293 silly linkStuff bcrypt@0.8.5 has C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules as its parent node_modules
+294 verbose linkBins bcrypt@0.8.5
+295 verbose linkMans bcrypt@0.8.5
+296 verbose rebuildBundles bcrypt@0.8.5
+297 verbose rebuildBundles [ 'bindings', 'nan' ]
+298 info install bcrypt@0.8.5
+299 verbose unsafe-perm in lifecycle true
+300 info bcrypt@0.8.5 Failed to exec install script
+301 verbose unlock done using C:\Users\ankit\AppData\Roaming\npm-cache\_locks\bcrypt-b9841c959a64f2a2.lock for C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+302 verbose stack Error: bcrypt@0.8.5 install: `node-gyp rebuild`
+302 verbose stack Exit status 1
+302 verbose stack     at EventEmitter.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\lifecycle.js:214:16)
+302 verbose stack     at emitTwo (events.js:87:13)
+302 verbose stack     at EventEmitter.emit (events.js:172:7)
+302 verbose stack     at ChildProcess.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+302 verbose stack     at emitTwo (events.js:87:13)
+302 verbose stack     at ChildProcess.emit (events.js:172:7)
+302 verbose stack     at maybeClose (internal/child_process.js:817:16)
+302 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+303 verbose pkgid bcrypt@0.8.5
+304 verbose cwd C:\Users\ankit\Documents\lab2\myfacebook-server
+305 error Windows_NT 10.0.10240
+306 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "bcrypt" "--msvs_version=2008"
+307 error node v4.0.0
+308 error npm  v2.14.2
+309 error code ELIFECYCLE
+310 error bcrypt@0.8.5 install: `node-gyp rebuild`
+310 error Exit status 1
+311 error Failed at the bcrypt@0.8.5 install script 'node-gyp rebuild'.
+311 error This is most likely a problem with the bcrypt package,
+311 error not with npm itself.
+311 error Tell the author that this fails on your system:
+311 error     node-gyp rebuild
+311 error You can get their info via:
+311 error     npm owner ls bcrypt
+311 error There is likely additional logging output above.
+312 verbose exit [ 1, true ]
+313 verbose unbuild node_modules\bcrypt
+314 info preuninstall bcrypt@0.8.5
+315 info uninstall bcrypt@0.8.5
+316 verbose unbuild rmStuff bcrypt@0.8.5 from C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules
+317 info postuninstall bcrypt@0.8.5
+318 silly gentlyRm C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt is being purged from base C:\Users\ankit\Documents\lab2\myfacebook-server
+319 verbose gentlyRm don't care about contents; nuking C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+320 silly vacuum-fs purging C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules\bcrypt
+321 silly vacuum-fs quitting because other entries in C:\Users\ankit\Documents\lab2\myfacebook-server\node_modules

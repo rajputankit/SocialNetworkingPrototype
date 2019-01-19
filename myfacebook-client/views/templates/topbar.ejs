@@ -1,0 +1,39 @@
+<div id="facebook-Bar">
+		<div id="facebook-Frame">
+			<div id="logo">
+				<a href="localhost:3000">facebook</a>
+			</div>
+
+			<div id="header-main-right" ng-controller = "appController">
+				<div id="header-main-right-nav">
+					<form name = "loginform" id="login_form" name="login_form" novalidate>
+						<table border="0" style="border: none">
+							<tr>
+								<td><input type="email" tabindex="1" id="email" placeholder="Email or Phone" name="email" class="inputtext radius1" ng-model = "credentials.email" required></td>
+								<td><input type="password" tabindex="2" id="password" placeholder="Password" name="password" class="inputtext radius1" ng-model = "credentials.password" required></td>
+								<td><input type="button" class="fbbutton" name="login" value="Login" tabindex="3" ng-Click = "signin()"></td>
+							</tr>
+							<tr>
+								<td>
+									<span style="color:white" ng-show="loginform.email.$dirty && loginform.email.$invalid">
+										<span ng-show="loginform.email.$error.required">Email is required</span>
+										<span ng-show="loginform.email.$error.email">Invalid email address</span>
+									</span>		
+								</td>
+								<td>
+									<span ng-show = "validate"><label ng-show = "validate">{{validatevar}}</label></span>
+									<span style="color:white" ng-show="loginform.password.$dirty && loginform.password.$invalid">
+										<span ng-show="loginform.password.$error.required">Password is required</span>
+									</span>
+								</td>
+								<td>
+									
+								</td>	
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	

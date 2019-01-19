@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/stylehome.css">  
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+          <title>Facebook</title>    
+      
+          
+  </head>
+  
+  <body ng-app = "" ng-controller="appController">
+
+	<% include templates/hometopbar.ejs %>
+	
+	
+	<div class="container">
+		
+		<div class = "row">
+		<div class = "col-sm-3">
+		
+			<img src = "dp.jpg" height = "200" width = "200">
+			<div class = "row">
+			<div class = "col-sm-10">	
+			<div>
+				
+				<div class="list-group">
+					<a href="#" class="list-group-item disabled"><b>YOUR GROUPS</b></a>
+					<a href="/creategroup" class="list-group-item"><b>Create a New Group</b></a>					
+					<div ng-repeat = "x in usergroups">
+					
+						<a href="#" class="list-group-item" ng-click = "togroup(x._id)">{{x.groupname}}</a> 
+					
+					</div>
+				</div>
+			</div>
+			</div>	
+				
+			</div>	
+			
+		</div>
+	<div class = "col-sm-9">
+		
+		<div class="col-xs-9">
+			<div class = "row">
+				<h3>Enter Group Name </h3> 
+<!-- 				<input class="form-control" id="ex3" type="text" ng-model="groupname"> -->
+				<textarea class="form-control" style="max-width: 100%; margin-bottom:20px;" rows="2" ng-model="groupname"></textarea>
+				<input type="button" class = "btn btn-success" value="Create Group" ng-click="creategroup()"/>
+			</div>
+     	</div>		
+					
+<!-- 		<div ng-repeat = "x in status"> -->
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">{{x.email}}</div> -->
+<!-- 				<div class="panel-body">{{x.status}}</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+	</div>
+</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>		
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script>
+        function appController($scope, $http) {
+        	
+        
+			$scope.creategroup = function(){
+        		
+            	$http({method: 'POST', url: '/creategroup', data: {"groupname" : $scope.groupname}}).then(function successCallback(response) {
+            		    
+            			console.log("group created");
+            			window.location.assign("/grouppage");
+            			
+            		  //}, function errorCallback(response) {});        	
+            	}, function errorCallback(response) {});       
+       		}
+        
+        	
+			$http({method: 'GET', url: '/getusername'}).then(function successCallback(response) {
+			    
+				console.log("username");
+				$scope.username = response.data;
+					
+			}, function errorCallback(response) {});  
+			
+			
+
+			$http({method: 'GET', url: '/getusergroups'}).then(function successCallback(response) {
+    		    
+				console.log("user groups");
+				if(response.data == "null"){
+					
+					console.log("in IF g");
+					console.log(response.data);
+					$scope.usergroups = {};
+					console.log($scope.usergroups);
+				}
+				else{
+
+					console.log(response.data);
+					$scope.usergroups = response.data;
+					console.log("in else g");
+				}
+        			
+        	}, function errorCallback(response) {});  
+			
+        	
+			
+			$scope.togroup = function(groupid){
+				
+				$http({method: 'POST', url: '/togroup', data:{"groupid": groupid}}).then(function successCallback(response) {
+	    		    
+					console.log("to groups");
+					window.location.assign("/grouppage");
+	        			
+	        	}, function errorCallback(response) {});  				
+			};
+			
+			
+			$http({method: 'GET', url: '/notificationcount'}).then(function successCallback(response) {
+    		    
+				console.log("notification");
+				if(response.data == "null"){$scope.count = 0;}
+				else{$scope.count = response.data;}
+        			
+        	}, function errorCallback(response) {}); 
+			
+        	
+        	
+        	$scope.signout = function(){
+        		
+            	$http({method: 'POST', url: '/signout'}).then(function successCallback(response) {
+            		    
+            			console.log("in success function of posting");
+            			window.location.assign("/signout");
+            			
+            		  //}, function errorCallback(response) {});        	
+            	}, function errorCallback(response) {});       
+       		}
+
+        };
+    </script>
+    
+    
+  </body>
+</html>

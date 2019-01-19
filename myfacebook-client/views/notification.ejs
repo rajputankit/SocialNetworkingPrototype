@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/stylehome.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+          <title>Facebook</title>    
+      
+            
+  </head>
+  
+  <body ng-app = "" ng-controller="appController">
+
+	<% include templates/hometopbar.ejs %>
+	
+
+
+<div class="container">
+<div class = "row">
+	<div class = "col-sm-3">
+		
+			<img src = "dp.jpg" height = "200" width = "200">
+			<div class = "row">
+			<div class = "col-sm-10">	
+			<div class="list-group">
+					<a href="#" class="list-group-item active" style = "background:#3a5795"><b>YOUR GROUPS</b></a>
+					<a href="/creategroup" class="list-group-item"><b>Create a New Group</b></a>					
+					<div ng-repeat = "x in usergroups">
+					
+						<a href="#" class="list-group-item" ng-click = "togroup(x._id)">{{x.groupname}}</a> 
+					
+					</div>
+			</div>	
+			</div>
+			</div>		
+	</div>
+	<div class = "col-sm-9" style = "margin-top:20px">
+			
+		<div class = "col-xs-9">
+			
+			
+<!-- 			<div ng-repeat = "x in requests" ng-show = "displayfriends"> -->
+<!-- 				<table> -->
+<!-- 					<tr> -->
+<!-- 						<td>{{x.firstname}} {{x.lastname}}</td> -->
+<!-- 						<td>{{x.email}}</td> -->
+<!-- 						<td><input type = "button" ng-click = "confirmfriendrequest(x.email);" value = "Confirm Request"></td>						 -->
+<!-- 					</tr>		 -->
+<!-- 				</table>	 -->
+<!-- 			</div>		 -->
+			
+			
+			
+			
+			
+			<div ng-show = "displayfriends">	
+				
+			<div class="list-group"> 
+				<a href="#" class="list-group-item active" style = "background:#3a5795">You Have Following Friend Requests:</a>
+					<div ng-repeat = "x in requests" ng-show = "displayfriends">
+						<a href="#" class="list-group-item"><img src = "dp.jpg" height = "20" width = "20">  
+						<span style = "display:inline-block; width:300px">
+							<span style = "display:inline-block; width:125px">									
+								<b>{{x.firstname}} {{x.lastname}}</b> 
+							</span>
+							<b>Email:  {{x._id}}</b>
+						</span> 
+						<button class = "btn btn-success" type = "button" ng-disabled = "display" ng-click = "confirmfriendrequest(x._id);display = true;">
+							 <span ng-show = "!display">Confirm Friend Request</span>
+							 <span ng-show = "display">Request Approved</span>
+						</button>
+						</a>
+<!-- 						<td><label ng-show = "display">Friend Request Sent</label></td> -->
+					</div>
+			</div>			
+			</div>
+			
+			
+			<div ng-show = "displaynull">	
+				
+			<div class="list-group"> 
+				<a href="#" class="list-group-item active" style = "background:#3a5795">You Have Following Notifications</a>
+				<a href="#" class="list-group-item">You don't have any friend requests</a>
+			</div>			
+			</div>
+			
+		</div>
+</div>
+</div>
+</div>	
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>		
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script>
+function appController($scope, $http) {
+        	
+        	$scope.displayfriends = false;   
+        	$scope.displaynull = false;
+        	$scope.requests = [];
+        	
+        	$http({method: 'GET', url: '/getfriendrequests'}).then(function successCallback(response) {
+    		    
+    			console.log("requests received");
+    			console.log(response.data);
+    			
+    			if(response.data == "null"){
+															
+    				console.log("in null");
+    				$scope.displaynull = true;    				 
+    			}
+    			else{
+    				
+    				console.log("in GETFRIENDREQUEST else");
+    				console.log(response.data);
+    				$scope.requests = response.data;
+    				$scope.displayfriends = true;
+    			}
+    			
+    		  }, function errorCallback(response) {}); 
+        	
+        	
+        	
+			$scope.confirmfriendrequest = function(friendemail){
+        		
+        		$http({method: 'POST', url: '/confirmfriendrequest', data: {"friendemail": friendemail}}).then(function successCallback(response) {
+        		    
+        			console.log("approved");	
+        			
+        		}, function errorCallback(response) {}); 
+        		
+        	}     
+			
+			
+
+			$http({method: 'GET', url: '/getusername'}).then(function successCallback(response) {
+    		    
+				console.log("username");
+				$scope.username = response.data;
+        			
+        	}, function errorCallback(response) {});  
+			
+			
+			
+			$http({method: 'GET', url: '/getusergroups'}).then(function successCallback(response) {
+    		    
+				console.log("user groups");
+				if(response.data == "null"){
+					
+					console.log("in IF g");
+					console.log(response.data);
+					$scope.usergroups = {};
+					console.log($scope.usergroups);
+				}
+				else{
+
+					console.log(response.data);
+					$scope.usergroups = response.data;
+					console.log("in else g");
+				}
+        			
+        	}, function errorCallback(response) {});  
+			
+        	
+			
+			$scope.togroup = function(groupid){
+				
+				$http({method: 'POST', url: '/togroup', data:{"groupid": groupid}}).then(function successCallback(response) {
+	    		    
+					console.log("to groups");
+					window.location.assign("/grouppage");
+	        			
+	        	}, function errorCallback(response) {});  				
+			};
+						
+			
+			$scope.signout = function(){
+        		
+            	$http({method: 'POST', url: '/signout'}).then(function successCallback(response) {
+            		    
+            			console.log("in success function of posting");
+            			window.location.assign("/signout");
+            			
+            		  //}, function errorCallback(response) {});        	
+            	}, function errorCallback(response) {});       
+       		}
+			
+			
+};
+    </script>
+    
+    
+  </body>
+</html>

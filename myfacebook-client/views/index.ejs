@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>      
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <title>Facebook</title>    
+  </head>
+  
+  <body ng-app = "" class = "login">
+    
+	<% include templates/topbar.ejs %>
+
+	
+	
+	<div class="loginbox radius" ng-controller = "appController">
+<!-- 		<img src = "11.jpg"> -->
+	
+	
+		<h2 style="text-align: center;">Welcome to Facebook</h2>
+		<div class="loginboxinner radius">
+			<div class="loginheader">
+				<h4 class="title">Connect with friends and the world around	you.</h4>
+			</div>
+			<!--loginheader-->
+
+			<div class="loginform" >
+
+  				<form id="login" name = "userform" novalidate>
+					<p>
+						<input type="text" id="username" name="firstname" placeholder="First Name" value="" class="radius mini" ng-model = "user.firstname" ng-pattern = "/^[a-zA-Z]*$/" required/>
+						<input type="text" id="username" name="lastname" placeholder="Last Name" value="" class="radius mini" ng-model = "user.lastname" ng-pattern = "/^[a-zA-Z]*$/" required/>
+												
+						<p>
+						<span style="color:red" ng-show="userform.firstname.$dirty && userform.firstname.$invalid">
+							<span ng-show="userform.firstname.$error.required">First name is required</span>
+							<span ng-show="userform.firstname.$error.pattern">Invalid First Name</span>
+						</span>
+						<span style="color:red" ng-show="userform.lastname.$dirty && userform.lastname.$invalid">
+							<span ng-show="userform.lastname.$error.required">Last name is required</span>
+							<span ng-show="userform.lastname.$error.pattern">Invalid Last Name</span>
+						</span>
+						</p>
+					</p>
+					<p>
+						<input type="email" id="username" name="email" placeholder="Your Email" class="radius" ng-model = "user.email" required/>
+						<span style="color:red" ng-show="userform.email.$dirty && userform.email.$invalid">
+							<span ng-show="userform.email.$error.required">Email is required</span>
+							<span ng-show="userform.email.$error.email">Invalid email address</span>
+						</span>					
+					</p>
+					<p>
+						<input type="email" id="username" name="confirmemail" placeholder="Confirm Email" class="radius" ng-model = "a" required/>
+						<span style="color:red" ng-show="userform.confirmemail.$dirty && userform.confirmemail.$invalid">
+							<span ng-show="userform.confirmemail.$error.required">Email is required</span>
+							<span ng-show="userform.confirmemail.$error.email">Invalid email address</span>
+						</span>	
+					</p>
+					<p>
+						<input type="password" id="password" name="password" placeholder="New Password" class="radius" ng-model = "user.password" ng-minlength = "6" ng-pattern = "/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required/>
+						<span style="color:red" ng-show="userform.password.$dirty && userform.password.$invalid">
+							<span ng-show="userform.password.$error.required">Password is required</span>
+							<span ng-show="userform.password.$error.minlength">Password is too short.</span>	
+							<span ng-show="userform.password.$error.pattern">Password Should be Alphanumeric</span>							
+						</span>
+					</p>
+					<p align = "left">
+						<input type = "radio" name = "gender" value = "male" class="radius" style = "width:50px" ng-model = "user.gender" ng-checked = "true">Male
+						<input type = "radio" name = "gender" value = "female" class = "radius" style = "width:50px" ng-model = "user.gender">Female						
+					</p>
+					
+					<p align = "left" style = "padding:12px 10px 10px 20px">
+					<span align = "left" >Birthday
+						<select name = "month" ng-model = "user.month" required>
+							<option value = "01" ng-selected = "true">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						
+						<select name = "day" ng-model = "user.day">		
+							<option ng-selected = "true">1</option>						
+							<% for(var i=2; i < 31; i++) { %>
+        					<option><%=i %></option>
+    						<% } %>    			
+						</select>	
+						
+						<select name = "year" ng-model = "user.year">
+							<option ng-selected = "true">2015</option>
+							<% for(var i=2014; i > 1950; i--) { %>
+        					<option><%=i %></option>		
+    						<% } %>    	
+						</select>							
+					</span>					
+					</p>
+					<p>
+<!-- 						<button type = "submit" class="radius title" name="client_login">Sign Up for Facebook</button> -->
+					<span style="color:red" ng-show = "displayexists">Email ID Already Registered</span>
+					<button value = "Sign Up for test Facebook" ng-Click = "signup()">Sign Up for Facebook</button>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+			
+	    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script>
+        function appController($scope, $http) {
+        	
+        	$scope.validate = false;
+        	$scope.displayexists = false;
+        	$scope.credentials = {};
+        	$scope.user = {};
+        	$scope.user.gender = "male";
+        	$scope.user.day = "1";
+        	$scope.user.month = "01";
+        	$scope.user.year = "2015";
+        	
+        	$scope.signin = function(){
+        		
+            	$http({method: 'POST', url: '/signin', data: $scope.credentials}).then(function successCallback(response) {
+            		    
+            			if(response.data == "authorize"){
+            				
+            				window.location.assign("/home");
+            			}
+            			else{
+            				if(response.data == "password"){
+            					
+            					$scope.validate = true;
+            					$scope.validatevar = "Please Enter Password";
+            				}
+            				else{
+            					$scope.validate = true;
+            					$scope.validatevar = "Invalid Email / Password credentials";
+            				}
+            			}
+            			
+            		  }, function errorCallback(response) {});        	
+            	}
+        	
+        	$scope.signup = function(){
+        		
+        		alert("month is" + $scope.user.month);
+        		
+        		$http({method: 'POST', url: '/signup', data: $scope.user, processData: false}).then(function successCallback(response) {
+        		    	
+        				console.log(response.data);
+        				if(response.data == "already"){
+        					
+        					console.log("in else exists");
+        					alert("exists");
+        					$scope.displayexists = true;
+        				}
+        				else if(response.data == "registered"){
+        					
+        					window.location.assign("/home");
+	        			}
+    	    			else{
+        					console.log("IN ELSE");
+        				}        			
+        				
+        		}, function errorCallback(response) {});  
+        	}
+		};
+	</script>
+	
+  </body>
+</html>

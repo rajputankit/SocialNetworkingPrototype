@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/stylehome.css">    
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">  	 
+            <title>Facebook</title>    
+        
+  </head>
+  
+  <body ng-app = "" ng-controller="appController">
+
+	<% include templates/hometopbar.ejs %>
+	
+<div class="container">
+	<div class = "row">
+		<div class = "col-sm-3">
+			
+			<img src = "dp.jpg" height = "200" width = "200">
+			<div class = "row">
+			<div class = "col-sm-10">	
+			
+			<div class="list-group">
+					<a href="#" class="list-group-item active" style = "background:#3a5795"><b>YOUR GROUPS</b></a>
+					<a href="/creategroup" class="list-group-item"><b>Create a New Group</b></a>					
+					<div ng-repeat = "x in usergroups">
+					
+						<a href="#" class="list-group-item" ng-click = "togroup(x._id)">{{x.groupname}}</a> 
+					
+					</div>
+			</div>
+			</div>
+			
+		</div>
+		</div>
+	<div class = "col-sm-9" style = "margin-top:20px">
+	<div class="col-xs-9">
+		
+		<div class = "row">
+			<div class="list-group" ng-show = "display"> 
+				<a href="#" class="list-group-item active" style = "background:#3a5795">Your Friends</a>
+				<div ng-repeat = "x in friends">
+					<a href="" class="list-group-item"><img src = "dp.jpg" height = "20" width = "20"> <b> {{x.firstname}} {{x.lastname}}</b></a>
+				</div>
+			</div>
+			
+			<div class="list-group" ng-show = "!display"> 
+				<a href="#" class="list-group-item active" style = "background:#3a5795">Your Friends</a>
+				<a href="" class="list-group-item">You Have 0 Friends</a>				
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script>
+        function appController($scope, $http) {
+        	
+        	$scope.display = true;        	
+        	$scope.friends = {};
+        	
+        	$http({method: 'GET', url: '/getfriends'}).then(function successCallback(response) {
+    		    
+    			console.log("friends received");
+    			console.log(response.data);    			
+    			if(response.data == "null"){$scope.display = false ;}
+    			else{$scope.friends = response.data;}    			
+    			
+    		  }, function errorCallback(response) {}); 
+        	
+        	
+        	$http({method: 'GET', url: '/notificationcount'}).then(function successCallback(response) {
+    		    
+				console.log("notification");
+				if(response.data == "null"){$scope.count = 0;}
+				else{$scope.count = response.data;}
+        			
+        	}, function errorCallback(response) {});  
+        	
+        	
+			$http({method: 'GET', url: '/getusername'}).then(function successCallback(response) {
+    		    
+				console.log("username");
+				$scope.username = response.data;
+        			
+        	}, function errorCallback(response) {});  
+        	
+        	
+        	$scope.signout = function(){
+        		
+            	$http({method: 'POST', url: '/signout'}).then(function successCallback(response) {
+            		    
+            			console.log("in success function of posting");
+            			window.location.assign("/signout");
+            			
+            		  }, function errorCallback(response) {});        	
+            }       
+        	
+        	
+//         	$scope.friendprofile = function(friendemail){
+        		
+//         		$http({method: 'POST', url: '/friendpage', data: {"friendemail": friendemail}}).then(function successCallback(response) {
+        		    
+//         			window.location.assign('friendprofile');
+        			
+//         		  }, function errorCallback(response) {}); 
+        		
+//         	}   
+        	
+        	
+$http({method: 'GET', url: '/getusergroups'}).then(function successCallback(response) {
+    		    
+				console.log("user groups");
+				if(response.data == "null"){
+					
+					console.log("in IF g");
+					console.log(response.data);
+					$scope.usergroups = {};
+					console.log($scope.usergroups);
+				}
+				else{
+
+					console.log(response.data);
+					$scope.usergroups = response.data;
+					console.log("in else g");
+				}
+        			
+        	}, function errorCallback(response) {});  
+			
+        	
+			
+			$scope.togroup = function(groupid){
+				
+				$http({method: 'POST', url: '/togroup', data:{"groupid": groupid}}).then(function successCallback(response) {
+	    		    
+					console.log("to groups");
+					window.location.assign("/grouppage");
+	        			
+	        	}, function errorCallback(response) {});  				
+			};
+        	
+        	
+			
+			
+        	
+        };
+    </script>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/stylehome.css">  
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+          <title>Facebook</title>    
+      
+          
+  </head>
+  
+  <body ng-app = "" ng-controller="appController">
+
+	<% include templates/hometopbar.ejs %>
+	
+	
+	<div class="container">
+		
+		<div class = "row">
+		<div class = "col-sm-3">
+		
+			<img src = "dp.jpg" height = "200" width = "200">
+			<div class="list-group">
+					<a href="#" class="list-group-item active" style = "background:#3a5795"><b>YOUR GROUPS</b></a>
+					<a href="/creategroup" class="list-group-item"><b>Create a New Group</b></a>					
+					<div ng-repeat = "x in usergroups">
+					
+						<a href="#" class="list-group-item" ng-click = "togroup(x._id)">{{x.groupname}}</a> 
+					
+					</div>
+			</div>
+			
+		</div>
+		<div class = "col-sm-9">
+		
+			<div class="col-xs-9">
+			<div class = "row" style = "margin-bottom:20px">
+				<span style = "display:inline-block; width:470px">
+					<h3>Welcome to <b>{{groupdetails.groupname}} </b>Group</h3> 
+	        	</span>
+	        	<input class = "btn btn-danger" type = "button" value = "Delete Group" ng-click = "deletegroup()"/>
+	        	
+    	    	<input class="form-control" style = "margin-bottom:20px;"id="ex3" type="text" ng-model = "membername">
+        		<input class = "btn btn-success" type = "button" value = "Search Member to Add" ng-click = "searchmembers()"/>
+        	</div>
+        	
+        	<div class = "row" style = "margin-bottom:20px">
+        	<div ng-show = "displaysearch">	
+<!-- 				<h2>Search Result:</h2>	 -->
+<!-- 					<table cell-padding = "20"> -->
+<!-- 						<tr ng-repeat = "x in searchedmembers"> -->
+<!-- 							<td>email {{x.email}} name {{x.firstname}} {{x.lastname}}</td>	 -->
+<!-- 							<td><input type = "button" value = "Add Member to Group" ng-click = "addmember(x.email)"/></td> -->
+<!-- 					</table>	 -->
+					
+					<div class="list-group">
+   						<a href="#" class="list-group-item active" style = "background:#3a5795">Search Result</a>
+   						
+   						<div ng-repeat = "x in searchedmembers">
+    						<a href="" class="list-group-item">	
+    							<span style = "display:inline-block; width:450px">	
+    								<span style = "display:inline-block; width:225px">									
+										<b>{{x.firstname}} {{x.lastname}}</b>  
+									</span>
+										<b>Email: {{x._id}}</b> 
+								</span>
+								<button class = "btn btn-success" type = "button" ng-disabled = "display" ng-click = "addmember(x._id, x.firstname, x.lastname);display = true;">
+									<span ng-show = "!display">Add Member</span>
+									<span ng-show = "display">Member Added</span>
+								</button>
+							</a> 							 						
+    					</div>    					
+  					</div>
+			</div>  
+			</div> 
+			
+<!-- 			<h4>Group Members</h4> -->
+<!-- 			<div ng-repeat = "x in members"> -->
+<!--      			<p>{{x.firstname}} {{x.lastname}}</p>  -->
+<!--      			<p><input type = "button" value = "Delete Member" ng-click = "deletemember(x.email)"/></p>    	 -->
+<!--      		</div>     -->
+     		
+     		<div class = "row" style = "margin-bottom:20px">
+     		<div class="list-group"> 
+    			<a href="#" class="list-group-item active" style = "background:#3a5795">Groups Members</a>
+    			<div ng-repeat = "x in members">
+    				<a href="#" class="list-group-item">
+    					<span style = "display:inline-block; width:450px">
+    						<b>{{x.firstname}} {{x.lastname}}</b>
+    					</span> 
+    					<button class = "btn btn-danger" ng-disabled = "display" type = "button" value = "Delete Member" ng-click = "deletemember(x._id);display = true;">
+    						<span ng-show = "!display">Delete Member</span>
+							<span ng-show = "display">Member Deleted</span>
+    					</button>
+					</a>
+    			</div>
+  			</div>
+     		</div>
+     		
+     	</div>	
+     	</div>	
+     		
+		
+		<h4 ng-show = "displaynull"> No Such members Found</h4>
+
+
+					
+<!-- 		<div ng-repeat = "x in status"> -->
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">{{x.email}}</div> -->
+<!-- 				<div class="panel-body">{{x.status}}</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+	</div>
+</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>		
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script>
+        function appController($scope, $http) {
+        	
+        	$scope.displaysearch = false;
+        	$scope.displaynull = false;
+        	
+       		$http({method: 'GET', url: '/groupdetails'}).then(function successCallback(response) {
+    		    
+       			$scope.members = response.data[1];
+       			$scope.groupdetails = response.data[0];
+       			//$scope.groupdetails = $scope.groupdetails[0];
+        		console.log(response.data);
+//				$scope.groupdetails = response.data;
+        			
+        	}, function errorCallback(response) {});  
+        	
+			
+       		
+			$scope.addmember = function(memberemail, firstname, lastname){
+        		
+        		$http({method: 'POST', url: '/addmember', data:{"memberemail": memberemail}}).then(function successCallback(response) {
+        		    
+        			console.log("members added");
+        			//$scope.searchedmembers = response.data;
+        			$scope.displaysearch = true;
+        			$scope.members.push({"firstname": firstname, "lastname": lastname, "_id": memberemail});
+        		       			
+        		  //}, function errorCallback(response) {});        	
+        		}, function errorCallback(response) {});             		
+        	}
+        	
+			$scope.deletemember = function(memberemail){
+        		
+        		$http({method: 'POST', url: '/deletemember', data:{"memberemail": memberemail}}).then(function successCallback(response) {
+        		    
+        			console.log("member deleted");
+        			
+        		  //}, function errorCallback(response) {});        	
+        		}, function errorCallback(response) {});             		
+        	}
+        	
+			$scope.deletegroup = function(){
+        		
+        		$http({method: 'POST', url: '/deletegroup', data:{"groupid": $scope.groupdetails._id}}).then(function successCallback(response) {
+        		    
+        			console.log("GROUP deleted");
+        			window.alert("Group Deleted");
+        			window.location.assign('/home')
+        			
+        		  //}, function errorCallback(response) {});        	
+        		}, function errorCallback(response) {});             		
+        	}
+       		      		
+       		
+       		
+       		$scope.searchmembers = function(){
+        		
+            	$http({method: 'POST', url: '/searchmembers', data:{"membername": $scope.membername}}).then(function successCallback(response) {
+            		    
+            			console.log("members searched" + response.data);
+            			if(response.data == "null"){
+            				
+            				$scope.displaynull = true;
+            			}
+            			else{
+            				
+            				$scope.searchedmembers = response.data;
+            				$scope.displaysearch = true;
+            			}
+            			
+            		  //}, function errorCallback(response) {});        	
+            	}, function errorCallback(response) {});       
+       		}
+			
+			$http({method: 'GET', url: '/getusergroups'}).then(function successCallback(response) {
+    		    
+				console.log("user groups");
+				if(response.data == "null"){
+					
+					console.log("in IF g");
+					console.log(response.data);
+					$scope.usergroups = {};
+					console.log($scope.usergroups);
+				}
+				else{
+
+					console.log(response.data);
+					$scope.usergroups = response.data;
+					console.log("in else g");
+				}
+        			
+        	}, function errorCallback(response) {});  
+			
+        	
+			
+			$scope.togroup = function(groupid){
+				
+				$http({method: 'POST', url: '/togroup', data:{"groupid": groupid}}).then(function successCallback(response) {
+	    		    
+					console.log("to groups");
+					window.location.assign("/grouppage");
+	        			
+	        	}, function errorCallback(response) {});  				
+			};
+       		
+
+       		$http({method: 'GET', url: '/getusername'}).then(function successCallback(response) {
+       		    
+       			console.log("username");
+       			$scope.username = response.data;
+       				
+       		}, function errorCallback(response) {});  
+       		
+       		
+       		$scope.signout = function(){
+       			
+       	    	$http({method: 'POST', url: '/signout'}).then(function successCallback(response) {
+       	    		    
+       	    			console.log("in success function of posting");
+       	    			window.location.assign("/signout");
+       	    			
+       	    		  //}, function errorCallback(response) {});        	
+       	    	}, function errorCallback(response) {});       
+       		}
+       	    
+			$http({method: 'GET', url: '/notificationcount'}).then(function successCallback(response) {
+    		    
+				console.log("notification");
+				if(response.data == "null"){$scope.count = 0;}
+				else{$scope.count = response.data;}
+        			
+        	}, function errorCallback(response) {}); 
+        
+			
+};
+    </script>
+    
+    
+  </body>
+</html>
